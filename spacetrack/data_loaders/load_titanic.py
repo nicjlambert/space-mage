@@ -1,4 +1,5 @@
 import io
+import os
 import pandas as pd
 import requests
 from pandas import DataFrame
@@ -14,9 +15,17 @@ def load_data_from_api(**kwargs) -> DataFrame:
     """
     Template for loading data from API
     """
-    url = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv?raw=True'
+    password = os.environ.get('SPACETRACK_API_PW')
+    identity = os.environ.get('SPACETRACK_USER')
 
-    return pd.read_csv(url)
+    url = "https://www.space-track.org/ajaxauth/login"
+
+    payload = 'identity={}&password={password}&query=https%3A%2F%2Fwww.space-track.org%2Fbasicspacedata%2Fquery%2Fclass%2Fsatcat%2Fnorad_cat_id%2F4321%2Fformat%2Fcsv'
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    return pd.read_csv(response.text)
 
 
 @test

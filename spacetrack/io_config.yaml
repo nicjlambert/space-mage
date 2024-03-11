@@ -84,7 +84,7 @@ default:
   POSTGRES_DBNAME: defaultdb
   POSTGRES_SCHEMA: public # Optional
   POSTGRES_USER: doadmin
-  POSTGRES_PASSWORD: password
+  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
   POSTGRES_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com
   POSTGRES_PORT: 25060
   # Qdrant
