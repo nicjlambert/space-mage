@@ -81,12 +81,12 @@ default:
   PINOT_USER: user
   # PostgresSQL
   POSTGRES_CONNECT_TIMEOUT: 10
-  POSTGRES_DBNAME: postgres
+  POSTGRES_DBNAME: defaultdb
   POSTGRES_SCHEMA: public # Optional
-  POSTGRES_USER: username
+  POSTGRES_USER: doadmin
   POSTGRES_PASSWORD: password
-  POSTGRES_HOST: hostname
-  POSTGRES_PORT: 5432
+  POSTGRES_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com
+  POSTGRES_PORT: 25060
   # Qdrant
   QDRANT_COLLECTION: collection
   QDRANT_PATH: path
