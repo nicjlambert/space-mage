@@ -4,6 +4,13 @@ This is a demo repository corresponding to the Mage ETL demo [here](http://docs.
 
 This demo pulls data from an API, transforms it with Mage, and writes it to a local DuckDB database.
 
+<br>
+
+![Architecture image](./architecture.png)
+
+<br>
+
+
 ## How can I get started?
 
 First, be sure Docker is installed and running, then run the following command:
