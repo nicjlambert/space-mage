@@ -5,8 +5,6 @@ services:
     command: mage start ${PROJECT_NAME}
     env_file:
       - .env
-    build:
-      context: .
     environment:
       USER_CODE_PATH: /home/src/${PROJECT_NAME}
       ENV: dev
@@ -18,3 +16,18 @@ services:
     volumes:
       - .:/home/src/
     restart: on-failure:5
+
+  metabase:
+    image: metabase/metabase:latest
+    ports:
+      - 3000:3000
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: defaultdb      # Database name
+      MB_DB_PORT: 25060            # Database port, typically 5432
+      MB_DB_USER: doadmin          # Database user
+      MB_DB_PASS: ${POSTGRES_PASSWORD}    # Database password
+      MB_DB_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com # Database host, the IP or domain of your Digital Ocean PostgreSQL
+      MB_DB_SSL: true
+      MB_DB_SSLMODE: require 
+    restart: on-failure
