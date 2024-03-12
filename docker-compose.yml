@@ -12,6 +12,7 @@ services:
       ENV: dev
       SPACETRACK_API_PW: ${SPACETRACK_API_PW}
       SPACETRACK_USER: ${SPACETRACK_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - 6789:6789
     volumes:
