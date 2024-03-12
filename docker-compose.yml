@@ -28,6 +28,5 @@ services:
       MB_DB_USER: doadmin          # Database user
       MB_DB_PASS: ${POSTGRES_PASSWORD}    # Database password
       MB_DB_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com # Database host, the IP or domain of your Digital Ocean PostgreSQL
-      MB_DB_SSL: true
-      MB_DB_SSLMODE: require 
+      MB_DB_SSLMODE: require                 # This might be needed based on your SSL configuration
     restart: on-failure
