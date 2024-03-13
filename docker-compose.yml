@@ -32,3 +32,20 @@ services:
       MB_DB_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com  
       MB_DB_SSLMODE: require                 
     restart: on-failure
+  
+  liquibase:
+    image: liquibase/liquibase
+    container_name: liquibase
+    #environment:
+      #MB_DB_TYPE: postgres
+      #MB_DB_DBNAME: defaultdb
+      #MB_DB_PORT: 25060
+      #MB_DB_USER: doadmin
+      #MB_DB_PASS: ${POSTGRES_PASSWORD}   
+      #MB_DB_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com 
+    command: >
+      --url="jdbc:postgresql://dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com:25060/defaultdb?user=doadmin&password=${POSTGRES_PASSWORD}" 
+      --changeLogFile=changelog.xml status
+    volumes:
+      - ./config/changelog.xml:/liquibase/changelog.xml
+      - ./scripts:/liquibase/scripts
