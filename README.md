@@ -1,4 +1,4 @@
-![Banner image](./banner.img)
+![Banner image](./banner.png)
 
 # What is it?
 
