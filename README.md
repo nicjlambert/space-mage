@@ -1,3 +1,5 @@
+![Banner image](./banner.img)
+
 # What is it?
 
 This demo pulls data from the SpaceTrack API, transforms it with Mage, and writes it to a DigitalOcean hosted PostgreSQL database.
