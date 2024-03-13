@@ -2,6 +2,7 @@ version: '3'
 services:
   magic:
     image: mageai/mageai:latest
+    container_name: mage
     command: mage start ${PROJECT_NAME}
     env_file:
       - .env
@@ -19,14 +20,15 @@ services:
 
   metabase:
     image: metabase/metabase:latest
+    container_name: metabase
     ports:
       - 3000:3000
     environment:
       MB_DB_TYPE: postgres
-      MB_DB_DBNAME: defaultdb      # Database name
-      MB_DB_PORT: 25060            # Database port, typically 5432
-      MB_DB_USER: doadmin          # Database user
-      MB_DB_PASS: ${POSTGRES_PASSWORD}    # Database password
-      MB_DB_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com # Database host, the IP or domain of your Digital Ocean PostgreSQL
-      MB_DB_SSLMODE: require                 # This might be needed based on your SSL configuration
+      MB_DB_DBNAME: defaultdb      
+      MB_DB_PORT: 25060           
+      MB_DB_USER: doadmin         
+      MB_DB_PASS: ${POSTGRES_PASSWORD}   
+      MB_DB_HOST: dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com  
+      MB_DB_SSLMODE: require                 
     restart: on-failure
