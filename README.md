@@ -6,7 +6,7 @@ This demo pulls data from an API, transforms it with Mage, and writes it to a lo
 
 <br>
 
-![Architecture image](./architecture.png)
+![Architecture image](./architecture.gif)
 
 <br>
 
