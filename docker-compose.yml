@@ -47,5 +47,5 @@ services:
       --url="jdbc:postgresql://dma-prod-pgsql-syd-00-do-user-16032706-0.c.db.ondigitalocean.com:25060/defaultdb?user=doadmin&password=${POSTGRES_PASSWORD}" 
       --changeLogFile=changelog.xml status
     volumes:
-      - ./config/changelog.xml:/liquibase/changelog.xml
-      - ./scripts:/liquibase/scripts
+      - ./db.changelog/changelog.xml:/liquibase/changelog.xml
+      - ./db.changelog/db.changes:/liquibase/db.changelog/db.changes
